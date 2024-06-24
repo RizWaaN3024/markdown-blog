@@ -5,13 +5,11 @@ const app = express();
 
 app.use(express.urlencoded({ extended: false }))
 
-mongoose.connect("mongodb://localhost/blog", {
-
-})
+mongoose.connect("mongodb://localhost/blog", {})
 
 
 app.set("view engine", "ejs")
-app.use("/articles", articleRouter)
+
 
 
 app.get("/", (req, res) => {
@@ -22,4 +20,7 @@ app.get("/", (req, res) => {
     }]
     res.render("articles/index", { articles: articles})
 })
+
+
+app.use("/articles", articleRouter)
 app.listen(3000);
