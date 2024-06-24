@@ -3,6 +3,8 @@ const mongoose = require("mongoose")
 const articleRouter = require("./routes/articles")
 const app = express();
 
+app.use(express.urlencoded({ extended: false }))
+
 mongoose.connect("mongodb://localhost/blog", {
 
 })
